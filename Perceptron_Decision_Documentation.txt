@@ -1,0 +1,116 @@
+# Perceptron Decision Boundary Documentation
+
+## 1. PSEUDOCODE
+
+```
+1. Data Generation:
+   - Generate 100 random 2D points
+   - Create labels based on line x + y = 0
+   - Points above line: label = 1
+   - Points below line: label = -1
+
+2. Initialize:
+   - Random weights (2 dimensions)
+   - Random bias
+   - Set learning rate and epochs
+
+3. Training:
+   FOR epoch in range(epochs):
+       FOR each data_point in dataset:
+           - Calculate prediction using sign(w·x + b)
+           - Calculate error = true_label - prediction
+           - Update weights and bias
+
+4. Visualization:
+   - Create mesh grid for decision boundary
+   - Calculate decision boundary using trained weights
+   - Plot data points and boundary
+```
+
+## 2. CODE EXPLANATION
+
+The code implements a perceptron classifier with visualization:
+
+1. Data Generation:
+   - Creates synthetic 2D dataset
+   - Uses numpy random normal distribution
+   - Ensures linear separability using x + y > 0
+
+2. Perceptron Structure:
+   - 2 input features (x1, x2)
+   - Binary output (-1 or 1)
+   - Uses sign function for activation
+   - Includes bias term
+
+3. Training Process:
+   - Online learning approach
+   - 10 epochs of training
+   - Updates weights using perceptron rule
+   - Learning rate = 0.1
+
+4. Visualization:
+   - Creates decision boundary plot
+   - Shows data points with colors
+   - Displays separating hyperplane
+
+## 3. REAL-LIFE EXAMPLES
+
+1. Binary Classification:
+   - Email spam detection
+   - Example: Classifying emails based on two features like length and keyword count
+
+2. Simple Image Recognition:
+   - Basic shape detection
+   - Example: Separating circles from squares based on features
+
+3. Quality Control:
+   - Product inspection
+   - Example: Classifying products as defective/non-defective based on measurements
+
+## 4. FUNCTIONS AND THEIR WORK
+
+1. Library Functions:
+   - numpy (np): Numerical operations
+   - matplotlib.pyplot (plt): Visualization
+   - np.sign(): Activation function
+   - np.meshgrid(): Creates visualization grid
+
+2. Key Operations:
+   - np.dot(): Matrix multiplication
+   - np.random.randn(): Generate random data
+   - plt.contourf(): Plot decision regions
+   - plt.scatter(): Plot data points
+
+## 5. WORKFLOW
+
+1. Data Preparation:
+   a. Set random seed for reproducibility
+   b. Generate random 2D points
+   c. Create binary labels
+
+2. Training:
+   a. Initialize parameters
+   b. For each epoch:
+      - Make predictions
+      - Calculate errors
+      - Update parameters
+
+3. Visualization:
+   a. Create mesh grid
+   b. Calculate decision boundary
+   c. Plot regions and points
+   d. Add labels and title
+
+Key Features:
+- Linear separator
+- Binary classification
+- Visual representation
+- Online learning
+- Interactive plot
+
+This implementation demonstrates:
+- Basic classification
+- Decision boundaries
+- Geometric interpretation
+- Data visualization
+- Linear separability concept

@@ -1,0 +1,118 @@
+# Even-Odd ASCII Number Recognition Using Perceptron
+
+## 1. PSEUDOCODE
+
+```
+Function step_function(x):
+    if x >= 0:
+        return 1
+    else:
+        return 0
+
+Main Algorithm:
+1. Initialize:
+   - Create training data with ASCII binary representations
+   - Initialize random weights (6 dimensions)
+   - Set random bias
+   - Set learning rate
+
+2. Training Phase:
+   FOR epoch = 1 to 10:
+       FOR each training_sample:
+           - Convert input to binary array
+           - Calculate prediction using step function
+           - Calculate error (true_label - prediction)
+           - Update weights and bias
+
+3. Testing Phase:
+   - Get ASCII input (48-57)
+   - Convert to binary representation
+   - Apply trained weights and bias
+   - Classify as Even/Odd
+```
+
+## 2. CODE EXPLANATION
+
+The code implements a perceptron to recognize even and odd numbers from their ASCII representations:
+
+1. Input Processing:
+   - Takes ASCII values (48-57 representing 0-9)
+   - Converts to 6-bit binary representation
+   - Example: ASCII 48 ('0') → [0,0,0,0,0,0]
+
+2. Perceptron Structure:
+   - 6 input neurons (for 6-bit binary)
+   - Single output neuron (0=Even, 1=Odd)
+   - Uses step activation function
+   - Includes bias term
+
+3. Training Process:
+   - Uses supervised learning
+   - 10 training samples (digits 0-9)
+   - Updates weights using perceptron learning rule
+   - Runs for 10 epochs
+
+## 3. REAL-LIFE EXAMPLES
+
+1. Digital Systems:
+   - ASCII Character Recognition
+   - Example: Reading numbers from keyboard input
+
+2. Pattern Recognition:
+   - Binary Pattern Classification
+   - Example: Sorting numbers in digital systems
+
+3. Simple AI Applications:
+   - Basic Number Properties
+   - Example: Automated number classification
+
+## 4. FUNCTIONS AND THEIR WORK
+
+1. Library Functions:
+   - numpy (np): Array operations and random number generation
+   - np.dot(): Matrix multiplication
+   - np.random.rand(): Generate random weights
+
+2. Custom Functions:
+   - step_function(x):
+     * Binary threshold activation
+     * Returns 1 if input ≥ 0, else 0
+
+3. Key Operations:
+   - Binary Conversion: '{0:06b}'.format()
+   - Weight Updates: w = w + learning_rate * error * input
+   - Bias Updates: b = b + learning_rate * error
+
+## 5. WORKFLOW
+
+1. Data Preparation:
+   a. Define ASCII training data (48-57)
+   b. Convert to binary representations
+   c. Label even digits as 0, odd as 1
+
+2. Training:
+   a. Initialize random weights and bias
+   b. For each epoch:
+      - Forward pass through perceptron
+      - Calculate error
+      - Update weights and bias
+
+3. Testing:
+   a. Accept ASCII input
+   b. Convert to binary
+   c. Apply trained weights
+   d. Classify as Even/Odd
+
+Key Features:
+- Binary classification task
+- Simple perceptron architecture
+- Online learning approach
+- Fixed learning rate (0.1)
+- ASCII-based input processing
+
+This implementation demonstrates:
+- Basic neural network concepts
+- Binary pattern recognition
+- Supervised learning process
+- ASCII number processing
+- Simple classification task

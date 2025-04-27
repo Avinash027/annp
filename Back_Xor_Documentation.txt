@@ -1,0 +1,128 @@
+# Back-Propagation XOR Documentation
+
+## 1. PSEUDOCODE
+
+```
+1. Network Setup:
+   - Define sigmoid and its derivative
+   - Initialize minimal architecture:
+     * 2 input neurons
+     * 2 hidden neurons (minimal for XOR)
+     * 1 output neuron
+   - Initialize small random weights/biases
+
+2. Forward Pass:
+   Hidden_Layer:
+       Z1 = X·W1 + b1
+       A1 = sigmoid(Z1)
+   Output_Layer:
+       Z2 = A1·W2 + b2
+       A2 = sigmoid(Z2)
+
+3. Backward Pass:
+   Output_Layer_Error:
+       error = y - A2
+       delta2 = error * sigmoid_derivative(A2)
+   Hidden_Layer_Error:
+       error_hidden = delta2·W2ᵀ
+       delta1 = error_hidden * sigmoid_derivative(A1)
+
+4. Weight Updates:
+   W2 += learning_rate * A1ᵀ·delta2
+   b2 += learning_rate * sum(delta2)
+   W1 += learning_rate * Xᵀ·delta1
+   b1 += learning_rate * sum(delta1)
+```
+
+## 2. CODE EXPLANATION
+
+The code implements XOR with minimal architecture:
+
+1. Network Architecture:
+   - Input Layer: 2 neurons
+   - Hidden Layer: 2 neurons (minimal)
+   - Output Layer: 1 neuron
+   - All layers fully connected
+
+2. Learning Parameters:
+   - Learning Rate: 0.1
+   - Epochs: 10000
+   - Weight Range: Uniform(-1, 1)
+   - Loss: Mean Squared Error
+
+3. Key Differences from Previous:
+   - Simpler architecture (2 vs 4 hidden neurons)
+   - Lower learning rate (0.1 vs 0.5)
+   - MSE loss instead of MAE
+   - More detailed error tracking
+
+## 3. REAL-LIFE EXAMPLES
+
+1. Minimal Systems Design:
+   - Resource-constrained systems
+   - Example: Embedded XOR circuits
+
+2. Optimization Problems:
+   - Finding minimal solutions
+   - Example: Network pruning
+
+3. Educational Purpose:
+   - Understanding minimal requirements
+   - Example: Neural architecture study
+
+## 4. FUNCTIONS AND THEIR WORK
+
+1. Core Functions:
+   - sigmoid(x): 1/(1 + e^(-x))
+   - sigmoid_derivative(s): s(1-s)
+   - Both vectorized for efficiency
+
+2. Network Operations:
+   - Matrix multiplications (np.dot)
+   - Element-wise operations
+   - Gradient calculations
+   - Weight/bias updates
+
+3. Monitoring:
+   - Loss calculation every 1000 epochs
+   - Final binary predictions
+   - Comparison with true values
+
+## 5. WORKFLOW
+
+1. Setup Phase:
+   a. Define network architecture
+   b. Initialize parameters
+   c. Set training parameters
+
+2. Training Process:
+   a. Forward Propagation:
+      - Two-layer transformation
+      - Sigmoid activation
+   
+   b. Error Calculation:
+      - Output layer error
+      - Hidden layer error
+   
+   c. Parameter Updates:
+      - Weights and biases
+      - Batch updates
+
+3. Evaluation:
+   a. Monitor training progress
+   b. Make final predictions
+   c. Compare with true values
+
+Key Features:
+- Minimal architecture
+- Detailed error tracking
+- Clear step progression
+- Binary output conversion
+- Performance monitoring
+
+This implementation demonstrates:
+- Architectural optimization
+- Backpropagation mechanics
+- Minimal network requirements
+- Training monitoring
+- Binary classification efficiency

@@ -1,0 +1,125 @@
+# Adaptive Resonance Theory (ART1) Documentation
+
+## 1. PSEUDOCODE
+
+```
+Class ART1:
+    Initialize(num_features, max_clusters, vigilance):
+        Set parameters
+        Initialize weights to ones
+        Set cluster count to 0
+
+    ComplementCode(x):
+        Return [x, 1-x]
+
+    ChoiceFunction(x_cc, j):
+        Return sum(minimum(x_cc, weights[j]))
+
+    MatchFunction(x_cc, j):
+        Return ChoiceFunction(x_cc, j) / sum(x_cc)
+
+    Train(inputs):
+        FOR each pattern in inputs:
+            complement_code = [pattern, 1-pattern]
+            FOR each existing cluster:
+                IF match >= vigilance:
+                    Update weights
+                    Break
+            IF no match found AND space available:
+                Create new cluster
+                
+    Predict(pattern):
+        Return matching cluster or -1
+```
+
+## 2. CODE EXPLANATION
+
+The code implements ART1 neural network:
+
+1. Network Structure:
+   - Binary input patterns
+   - Complement coding
+   - Dynamic cluster creation
+   - Vigilance-based matching
+
+2. Key Parameters:
+   - num_features: Input dimension
+   - max_clusters: Maximum categories
+   - vigilance: Match threshold (0.75)
+   - weights: Binary weight matrix
+
+3. Learning Process:
+   - Complement coding preprocessing
+   - Match-based clustering
+   - Dynamic category recruitment
+   - Weight adaptation
+
+## 3. REAL-LIFE EXAMPLES
+
+1. Pattern Recognition:
+   - Character recognition
+   - Example: Handwritten digit classification
+
+2. Category Learning:
+   - Unsupervised clustering
+   - Example: Customer segmentation
+
+3. Novelty Detection:
+   - New pattern identification
+   - Example: Anomaly detection in signals
+
+## 4. FUNCTIONS AND THEIR WORK
+
+1. Core Methods:
+   - __init__(): Network initialization
+   - complement_code(): Input preprocessing
+   - choice_function(): Category selection
+   - match_function(): Similarity measurement
+   - train(): Learning procedure
+   - predict(): Category assignment
+
+2. Helper Operations:
+   - numpy.minimum(): Element-wise minimum
+   - numpy.sum(): Array summation
+   - numpy.hstack(): Array concatenation
+   - Array copying and comparison
+
+## 5. WORKFLOW
+
+1. Initialization:
+   a. Set network parameters
+   b. Initialize weight matrix
+   c. Prepare for dynamic growth
+
+2. Training Process:
+   a. Input Processing:
+      - Convert to array
+      - Apply complement coding
+   
+   b. Category Search:
+      - Check existing clusters
+      - Compare with vigilance
+      - Update or create cluster
+   
+   c. Weight Updates:
+      - Minimum operation
+      - In-place modification
+
+3. Prediction:
+   a. Preprocess new pattern
+   b. Find matching cluster
+   c. Return cluster index
+
+Key Features:
+- Online learning
+- Stable categories
+- Plasticity for new patterns
+- Vigilance-based control
+- Binary pattern handling
+
+This implementation demonstrates:
+- Unsupervised learning
+- Adaptive categorization
+- Stability-plasticity balance
+- Dynamic network growth
+- Pattern similarity matching

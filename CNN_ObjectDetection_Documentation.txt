@@ -1,0 +1,147 @@
+# CNN Object Detection (YOLOv5) Documentation
+
+## 1. PSEUDOCODE
+
+```
+1. Model Setup:
+   Load pretrained YOLOv5 model
+   Set confidence threshold
+
+2. Object Detection:
+   Function detect_objects(image_path):
+       Validate image exists
+       Load and convert image to RGB
+       Run model inference
+       Return detection results
+
+3. Visualization:
+   Function plot_detections(image_path, detections):
+       Load image
+       FOR each detection:
+           Draw bounding box
+           Add label with confidence
+       Display result
+
+4. Main Process:
+   Load image
+   Detect objects
+   Display results
+```
+
+## 2. CODE EXPLANATION
+
+The code implements real-time object detection:
+
+1. Model Architecture:
+   - YOLOv5s (small variant)
+   - Pre-trained weights
+   - Confidence threshold: 0.25
+   - RGB image input
+
+2. Detection Process:
+   - Image validation
+   - Format conversion
+   - Model inference
+   - Bounding box extraction
+
+3. Visualization Features:
+   - Rectangle drawing
+   - Label annotation
+   - Confidence display
+   - Green color scheme
+
+## 3. REAL-LIFE EXAMPLES
+
+1. Security Systems:
+   - Surveillance cameras
+   - Example: Intruder detection
+
+2. Autonomous Vehicles:
+   - Road object detection
+   - Example: Pedestrian recognition
+
+3. Quality Control:
+   - Product inspection
+   - Example: Defect detection
+
+## 4. FUNCTIONS AND THEIR WORK
+
+1. Core Functions:
+   - detect_objects(): Main detection logic
+   - plot_detections(): Visualization
+   - torch.hub.load(): Model loading
+
+2. Library Functions:
+   - PIL.Image: Image processing
+   - PIL.ImageDraw: Drawing functions
+   - matplotlib.pyplot: Display
+   - pandas: Data handling
+
+3. Utility Operations:
+   - Image format conversion
+   - Bounding box drawing
+   - Label rendering
+   - Confidence filtering
+
+## 5. WORKFLOW
+
+1. Setup Phase:
+   a. Load YOLOv5 model
+   b. Configure confidence threshold
+   c. Import dependencies
+
+2. Detection Process:
+   a. Image Processing:
+      - Path validation
+      - Format conversion
+      - Model input preparation
+   
+   b. Inference:
+      - Run model
+      - Get predictions
+      - Filter by confidence
+   
+   c. Visualization:
+      - Draw boxes
+      - Add labels
+      - Display results
+
+3. Output:
+   a. Detection coordinates
+   b. Object classes
+   c. Confidence scores
+   d. Visual representation
+
+Key Features:
+- Real-time detection
+- Multiple object classes
+- Confidence scoring
+- Visual output
+- Easy integration
+
+This implementation demonstrates:
+- Deep learning application
+- Computer vision
+- Object localization
+- Confidence estimation
+- Visual annotation
+
+Example Usage:
+```
+Input: RGB Image
+Output: 
+- Bounding boxes for detected objects
+- Object class labels
+- Confidence scores
+- Annotated image display
+
+Detection Format:
+{
+  'xmin': left coordinate,
+  'ymin': top coordinate,
+  'xmax': right coordinate,
+  'ymax': bottom coordinate,
+  'confidence': detection confidence,
+  'name': object class
+}
+```

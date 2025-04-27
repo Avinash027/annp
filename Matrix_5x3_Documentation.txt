@@ -1,0 +1,122 @@
+# 5x3 Matrix Digit Recognition Documentation
+
+## 1. PSEUDOCODE
+
+```
+1. Data Definition:
+   - Define digits 0-9 as 5x3 binary matrices
+   - Each digit represented by 15 binary values
+
+2. Model Setup:
+   - Flatten matrices to 1D arrays
+   - Create labels array (0-9)
+   - Initialize MLPClassifier with:
+     * 15 input neurons
+     * 10 hidden neurons
+     * 10 output neurons
+
+3. User Input:
+   Function get_user_matrix():
+       Initialize empty matrix
+       FOR row = 1 to 5:
+           REPEAT:
+               Get user input
+               Validate 3 binary digits
+               Add to matrix
+           UNTIL valid input
+       RETURN matrix
+
+4. Prediction:
+   - Flatten user matrix
+   - Use trained model to predict digit
+   - Display result
+```
+
+## 2. CODE EXPLANATION
+
+The code implements a digit recognition system using MLPClassifier:
+
+1. Data Structure:
+   - 5x3 binary matrix for each digit
+   - Total 15 binary inputs
+   - 10 possible output classes (0-9)
+   - Dictionary-based data storage
+
+2. Neural Network:
+   - Input layer: 15 neurons
+   - Hidden layer: 10 neurons
+   - Output layer: 10 neurons (one per digit)
+   - Max iterations: 1000
+   - Fixed random seed: 42
+
+3. Input Processing:
+   - Interactive matrix input
+   - Row-by-row validation
+   - Space and format handling
+   - Binary digit validation
+
+## 3. REAL-LIFE EXAMPLES
+
+1. Digital Display Recognition:
+   - LED/LCD digit recognition
+   - Example: Reading digital clock displays
+
+2. Pattern Matching:
+   - Simple character recognition
+   - Example: Basic OCR systems
+
+3. Educational Applications:
+   - Teaching binary representations
+   - Example: Digital number systems
+
+## 4. FUNCTIONS AND THEIR WORK
+
+1. Library Functions:
+   - numpy (np): Array operations
+   - sklearn.neural_network.MLPClassifier: Neural network
+   - np.array(): Array conversion
+   - flatten(): Matrix to vector conversion
+
+2. Custom Functions:
+   - get_user_matrix():
+     * Interactive input collection
+     * Input validation
+     * Matrix construction
+
+3. Key Operations:
+   - Dictionary to store digit patterns
+   - List comprehension for data preparation
+   - Input string manipulation
+   - Matrix flattening
+
+## 5. WORKFLOW
+
+1. Data Preparation:
+   a. Define digit patterns
+   b. Convert to training data
+   c. Prepare labels
+
+2. Model Training:
+   a. Initialize MLPClassifier
+   b. Fit model with data
+   c. Prepare for predictions
+
+3. User Interaction:
+   a. Get matrix input
+   b. Validate each row
+   c. Display entered matrix
+   d. Show prediction
+
+Key Features:
+- Interactive input
+- Input validation
+- Visual feedback
+- Simple neural network
+- Binary pattern recognition
+
+This implementation demonstrates:
+- Pattern recognition
+- Neural network classification
+- User input handling
+- Binary matrix operations
+- Data preprocessing techniques

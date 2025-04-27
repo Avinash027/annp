@@ -1,0 +1,120 @@
+# Forward-Backward Propagation Documentation
+
+## 1. PSEUDOCODE
+
+```
+1. Network Setup:
+   - Define activation functions (sigmoid)
+   - Initialize network architecture:
+     * 2 input neurons
+     * 4 hidden neurons
+     * 1 output neuron
+   - Initialize random weights and biases
+
+2. Forward Propagation:
+   hidden_output = sigmoid(X · W1 + b1)
+   final_output = sigmoid(hidden_output · W2 + b2)
+
+3. Backward Propagation:
+   - Calculate output error
+   - Compute gradients:
+     * output_gradient = error * sigmoid_derivative(output)
+     * hidden_gradient = (output_gradient · W2ᵀ) * sigmoid_derivative(hidden)
+   - Update weights and biases
+
+4. Training Loop:
+   FOR epoch in range(10000):
+       Forward Propagation
+       Calculate Error
+       Backward Propagation
+       Update Parameters
+       Print Progress
+```
+
+## 2. CODE EXPLANATION
+
+The code implements XOR using neural network with backpropagation:
+
+1. Network Architecture:
+   - Input Layer: 2 neurons
+   - Hidden Layer: 4 neurons
+   - Output Layer: 1 neuron
+   - Activation: Sigmoid
+
+2. Learning Process:
+   - Learning Rate: 0.5
+   - Epochs: 10000
+   - Weight Initialization: Uniform(-1, 1)
+   - Error Calculation: Mean Absolute Error
+
+3. Data Structure:
+   - XOR Input: [[0,0], [0,1], [1,0], [1,1]]
+   - XOR Output: [0, 1, 1, 0]
+   - Matrix-based operations
+
+## 3. REAL-LIFE EXAMPLES
+
+1. Logic Gate Implementation:
+   - Digital circuit simulation
+   - Example: Electronic XOR gate
+
+2. Pattern Recognition:
+   - Non-linear classification
+   - Example: Credit card fraud detection
+
+3. Decision Systems:
+   - Exclusive decision making
+   - Example: Mutual exclusivity checking
+
+## 4. FUNCTIONS AND THEIR WORK
+
+1. Activation Functions:
+   - sigmoid(x): 1/(1 + e^(-x))
+   - sigmoid_derivative(x): x(1-x)
+
+2. Library Functions:
+   - numpy.dot(): Matrix multiplication
+   - numpy.random.uniform(): Weight initialization
+   - sklearn.metrics.accuracy_score(): Performance metric
+
+3. Key Operations:
+   - Forward propagation matrices
+   - Error calculation
+   - Gradient computation
+   - Weight updates
+
+## 5. WORKFLOW
+
+1. Initialization:
+   a. Set random seed (42)
+   b. Initialize weights/biases
+   c. Define hyperparameters
+
+2. Training Loop:
+   a. Forward Pass:
+      - Input → Hidden layer
+      - Hidden → Output layer
+   
+   b. Backward Pass:
+      - Calculate error
+      - Compute gradients
+      - Update parameters
+
+3. Evaluation:
+   a. Calculate final output
+   b. Convert to binary predictions
+   c. Compute accuracy
+
+Key Features:
+- Matrix-based implementation
+- Gradient-based learning
+- Progress monitoring
+- Accuracy measurement
+- XOR problem solving
+
+This implementation demonstrates:
+- Neural network basics
+- Backpropagation algorithm
+- Non-linear problem solving
+- Gradient descent optimization
+- Binary classification

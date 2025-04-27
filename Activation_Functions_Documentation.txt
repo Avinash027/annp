@@ -1,0 +1,161 @@
+# Activation Functions Documentation
+
+## 1. PSEUDOCODE
+
+For each activation function:
+1. Define function that takes input x
+2. Apply mathematical transformation
+3. Generate range of x values (-6 to 6)
+4. Calculate y values using activation function
+5. Plot results with proper formatting
+
+Example for ReLU:
+```
+Function ReLU(x):
+    if x > 0:
+        return x
+    else:
+        return 0
+```
+
+## 2. CODE EXPLANATION
+
+The code implements and visualizes various activation functions used in neural networks:
+
+1. Linear Activation:
+   - Simple y = x relationship
+   - No transformation of input
+   - Range: (-∞, +∞)
+
+2. Sigmoid:
+   - Formula: 1 / (1 + e^(-x))
+   - Squashes input to range (0,1)
+   - Smooth S-shaped curve
+
+3. ReLU (Rectified Linear Unit):
+   - Returns x if positive, 0 if negative
+   - Simple and computationally efficient
+   - Helps with vanishing gradient problem
+
+4. Tanh (Hyperbolic Tangent):
+   - Similar to sigmoid but range is (-1,1)
+   - Zero-centered outputs
+   - Often used in hidden layers
+
+5. Leaky ReLU:
+   - Modification of ReLU
+   - Small positive slope (alpha=0.03) for negative values
+   - Helps prevent "dying ReLU" problem
+
+6. Softmax:
+   - Converts numbers into probabilities
+   - Outputs sum to 1
+   - Used in classification problems
+
+7. ELU (Exponential Linear Unit):
+   - Smooth version of ReLU
+   - Has negative values unlike ReLU
+   - Helps with mean activation closer to zero
+
+8. Softplus:
+   - Smooth approximation of ReLU
+   - Always positive output
+   - Formula: log(1 + e^x)
+
+9. SiLU (Swish):
+   - Self-gated activation function
+   - Combination of x and sigmoid
+   - Formula: x * sigmoid(x)
+
+## 3. REAL-LIFE EXAMPLES
+
+1. Linear Activation:
+   - Price prediction in linear relationships
+   - Example: Distance vs Time calculation
+
+2. Sigmoid:
+   - Binary classification problems
+   - Example: Spam vs Not-Spam email classification
+
+3. ReLU:
+   - Image recognition
+   - Example: Detecting edges in photos
+
+4. Tanh:
+   - Signal processing
+   - Example: Audio waveform normalization
+
+5. Leaky ReLU:
+   - Deep learning networks
+   - Example: Face recognition systems
+
+6. Softmax:
+   - Multi-class classification
+   - Example: Classifying handwritten digits (0-9)
+
+7. ELU:
+   - Deep neural networks
+   - Example: Sentiment analysis
+
+8. Softplus:
+   - Smooth positive outputs
+   - Example: Resource allocation problems
+
+9. SiLU:
+   - Modern deep learning
+   - Example: Language models
+
+## 4. FUNCTIONS AND THEIR WORK
+
+1. Library Functions:
+   - numpy (np): Mathematical operations
+   - matplotlib.pyplot (plt): Plotting functions
+
+2. Custom Functions:
+   - linear(x): Returns input as is
+   - sigmoid(x): Implements logistic function
+   - relu(x): Implements rectified linear unit
+   - tanh(x): Implements hyperbolic tangent
+   - leaky_relu(x, alpha): ReLU with small slope for negative values
+   - softmax(x): Converts to probability distribution
+   - elu(x, alpha): Exponential linear unit
+   - softplus(x): Smooth approximation of ReLU
+   - silu(x): Implements Swish activation
+
+3. Plotting Functions:
+   - plt.figure(): Creates new plot
+   - plt.plot(): Draws the curve
+   - plt.axhline/axvline(): Adds reference lines
+   - plt.title(): Sets plot title
+   - plt.legend(): Adds legend
+   - plt.grid(): Adds grid
+   - plt.show(): Displays the plot
+
+## 5. WORKFLOW
+
+1. Initial Setup:
+   - Import required libraries
+   - Define input range (-6 to 6)
+
+2. For Each Activation Function:
+   a. Define the mathematical function
+   b. Generate input values
+   c. Calculate output values
+   d. Create visualization
+   e. Add formatting (title, grid, legend)
+   f. Display plot
+
+3. Visualization Format:
+   - Figure size: 7x5
+   - X-axis: Input values (-6 to 6)
+   - Y-axis: Transformed values
+   - Reference lines at x=0 and y=0
+   - Grid for better readability
+   - Unique color for each function
+   - Clear title and legend
+
+This implementation allows for:
+- Visual comparison of different activation functions
+- Understanding of their properties
+- Selection of appropriate function for specific tasks
+- Educational purposes in neural network design
